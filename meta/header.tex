@@ -1,8 +1,6 @@
 % PAGE LAYOUT
 % requires packages from "packages.tex"
 
-
-
 \selectlanguage{ngerman}								% set language to german
 
 \setlength{\parindent}{0em} 							% paragraph indentation to left-justified
@@ -42,23 +40,23 @@
 }
 
 % set fonts of titles
-\titleformat{\chapter}[display] {\sffamily \huge}{\chaptertitlename\ \thechapter}{-5pt}{\Huge}
-\titlespacing*{\chapter}{0pt}{0pt}{10pt}
-\titleformat{\section}[display] {\sffamily \tiny}{}{0pt}{\LARGE \thesection\ }
+\titleformat{\chapter}[display] {\normalfont \huge \bfseries}{}{0pt}{\Huge \ifnum\value{chapter}>0 \thechapter\ \fi}
+\titlespacing*{\chapter}{0pt}{0pt}{0pt}
+\titleformat{\section}[display] {\normalfont \Large \bfseries}{}{0pt}{\LARGE \thesection\ }
 \titlespacing*{\section}{0pt}{0pt}{0pt}
-\titleformat{\subsection}[display] {\sffamily \tiny}{}{-15pt}{\Large \thesubsection\ }
+\titleformat{\subsection}[display] {\normalfont \large \bfseries}{}{-15pt}{\Large \thesubsection\ }
 \titlespacing*{\subsection}{0pt}{0pt}{0pt}
-\titleformat{\subsubsection}[display] {\sffamily \tiny}{}{-15pt}{\large \thesubsubsection\ }
+\titleformat{\subsubsection}[display] {\normalfont \normalsize \bfseries}{}{-15pt}{\large \thesubsubsection\ }
 \titlespacing*{\subsubsection}{0pt}{0pt}{0pt}
 
 % set fonts of table of contents
-\renewcommand{\cftchapfont}{\bf\sffamily}
-\renewcommand{\cftsecfont}{\sffamily}
-\renewcommand{\cftsubsecfont}{\sffamily}
+\renewcommand{\cftchapfont}{\bfseries}
+\renewcommand{\cftsecfont}{}
+\renewcommand{\cftsubsecfont}{}
 
 % set fonts of footnotes
-\renewcommand{\cfttabfont}{\sffamily}
-\renewcommand{\cftfigfont}{\sffamily}
+\renewcommand{\cfttabfont}{}
+\renewcommand{\cftfigfont}{}
 
 \setcounter{secnumdepth}{3}
 
@@ -83,12 +81,11 @@
 	xleftmargin=6pt,
 }
 
-
 % style captions
 \newlength\myx
 \setlength\myx{\textwidth}
 \addtolength\myx{-2\fboxsep}
-\DeclareCaptionFont{white}{\color{white} \sffamily}
+\DeclareCaptionFont{white}{\color{white}}
 \DeclareCaptionFormat{listing}{\colorbox{gray}{\parbox{\myx}{#1#2#3}}}
 \captionsetup[lstlisting]{format=listing,labelfont=white,textfont=white}
 \renewcommand{\lstlistingname}{Quelltext}
